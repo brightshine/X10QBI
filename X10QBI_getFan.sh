@@ -1,8 +1,8 @@
 #!/bin/sh
 
 IP=${1}
-USER='ADMIN'
-PASSWD='ADMIN'
+[ -z ${2} ] && USER='ADMIN' || USER=${2}
+[ -z ${3} ] && PASSWD='ADMIN' || PASSWD=${3}
 
 CMD_PREFIX="ipmitool -H ${IP} -U ${USER} -P ${PASSWD} raw "
 
