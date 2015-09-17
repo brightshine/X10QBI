@@ -4,6 +4,8 @@ IP=${1}
 [ -z ${2} ] && USER='ADMIN' || USER=${2}
 [ -z ${3} ] && PASSWD='ADMIN' || PASSWD=${3}
 
+[ $# -lt 2 ] && echo "usage: ${0} IP [username] [passwd]" && exit 1
+
 CMD_PREFIX="ipmitool -H ${IP} -U ${USER} -P ${PASSWD} raw "
 
 # Set T1FMR ~ T4FMR to 0x00
